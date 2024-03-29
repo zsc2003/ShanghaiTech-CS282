@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  28 MAR 2024 19:45
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  29 MAR 2024 14:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -350,8 +350,7 @@ File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
 \g__pdf_backend_object_int=\count292
 \g__pdf_backend_annotation_int=\count293
 \g__pdf_backend_link_int=\count294
-)
-No file hw.aux.
+) (./hw.aux)
 \openout1 = `hw.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
@@ -364,7 +363,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
 LaTeX Font Info:    ... okay on input line 44.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 44.
-(c:/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
+ (c:/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 44.
@@ -446,11 +445,9 @@ LaTeX Font Info:    ... okay on input line 44.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring OFF on input line 44.
+(./hw.out) (./hw.out)
 \@outlinefile=\write3
 \openout3 = `hw.out'.
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 LaTeX Info: Redefining \microtypecontext on input line 44.
 Package microtype Info: Applying patch `item' on input line 44.
@@ -463,7 +460,7 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
-(c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-ptm.cfg
+ (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 ) (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
@@ -494,19 +491,13 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 File: ./image/alg.png Graphic file (type bmp)
 <./image/alg.png>
 ) [3] (./hw.aux)
-
-Package rerunfilecheck Warning: File `hw.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `hw.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `hw.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 12714 strings out of 476683
- 201758 string characters out of 5807576
- 1847012 words of memory out of 5000000
+ 12720 strings out of 476683
+ 201800 string characters out of 5807576
+ 1848012 words of memory out of 5000000
  32770 multiletter control sequences out of 15000+600000
  530547 words of font info for 55 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
