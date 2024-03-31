@@ -10,31 +10,35 @@ Show that among all hypotheses, the one that minimizes $E_{\text{out}}$ is given
 The function $h^*$ can be treated as a deterministic target function, in which case we can write $y=h^*(x)+\epsilon(x)$ where $\epsilon(x)$ is an (input dependent) noise variable. Show that $\epsilon(x)$ has expected value zero.
 \newline
 \textcolor{blue}{Solution}\\
+Suppose the joint distribution of $x$ and $y$ is $f(x, y)$, the distribution of $x$ is $f_X(x)$, the distribution of $y$ is $f_Y(y)$, and the conditional distribution of $y$ given $x$ is $f_{Y|X}(y|x)$.\\
+
 Lamma: The law of iterated Expectation
-
-$$
-\mathbb{E}(Y)=\mathbb{E}_X[\mathbb{E}(Y|X)]
-$$
-
-$$
-\begin{aligned}
-& L H S=\mathbb{E}(Y)=\int_{-\infty}^{+\infty} y f_y(y) d y \\
-& R H S=\mathbb{E}_X\left[\int_{-\infty}^{+\infty} y \frac{f(x, y)}{f_x(x)} d y\right] \\
-&=\int_{-\infty}^{+\infty}\left[\int_{-\infty}^{+\infty} y \frac{f(x, y)}{f_x(x)} d y\right] f_x(x) d x \\
+$$\mathbb{E}(Y)=\mathbb{E}_X[\mathbb{E}(Y|X)]$$
+proof:
+\begin{align*}
+\mathbb{E}_X[\mathbb{E}(Y|X)] &= \mathbb{E}_X\left[\int_{-\infty}^{+\infty} y f_{Y|X}(y|x) d y\right] \\
+&= \mathbb{E}_X\left[\int_{-\infty}^{+\infty} y \frac{f(x, y)}{f_X(x)} d y\right] \\
+&=\int_{-\infty}^{+\infty}\left[\int_{-\infty}^{+\infty} y \frac{f(x, y)}{f_X(x)} d y\right] f_X(x) d x \\
 &=\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} y f(x, y) d x d y \\
 &=\int_{-\infty}^{+\infty} y\left[\int_{-\infty}^{+\infty} f(x, y) d x\right] d y \\
-&=\int_{-\infty}^{+\infty} y f_y(y) d y \\
-&=L H S
-\end{aligned}
-$$
+&=\int_{-\infty}^{+\infty} y f_Y(y) d y \\
+&=\mathbb{E}(Y)
+\end{align*}
 
+1. Since $E_{\text{out}}(h)=\mathbb{E}[{(h(x)-y)}^2]=\mathbb{E}_{X,Y}[{(h(x)-y)}^2]$, we have
+\begin{align*}
+    \dfrac{\partial E_{\text{out}}(h)}{\partial h} &= 2 \mathbb{E}_{X,Y}[h(x)-y] \\
+    &= 2 \mathbb{E}_X\left[\mathbb{E}\left[(h(x)-y)|x\right]\right] \text{\ \ \ \ \ \ \ (Lamma)} \\
+    &= 2 \mathbb{E}_X\left[\mathbb{E}\left[h(x)|x\right]-\mathbb{E}\left[y|x\right]\right] \\
+    &= 2 \mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]
+\end{align*}
 
+The necessary condition for minimizing the $E_{\text{out}}(h)$ is to let $2 \mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]=0$.
+Since $\mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]$ is the function of $x$, so if $h(x)-\mathbb{E}\left[y|x\right]=0$, 
+then $\dfrac{\partial E_{\text{out}}(h)}{\partial h}=0$, which minimizes $E_{\text{out}}(h)$.\\
+So we have $h^*(x)=\mathbb{E}[y|x]$.\\ 
 
-
-
-
-
-
-
-
+2. Since $y=h^*(x)+\epsilon(x)$, we have
+$$\mathbb{E}[\epsilon(x)]=\mathbb{E}[y-h^*(x)]=\mathbb{E}(y)-\mathbb{E}[h^*(x)]=\mathbb{E}[y]-\mathbb{E}\left[\mathbb{E}[y|x]\right]\stackrel{\text{Lamma}}{=}\mathbb{E}[y]-\mathbb{E}[y]=0$$
+So above all, we have prove that $h^*(x)=\mathbb{E}[y|x]$ and $\epsilon(x)$ has expected value zero.\\
 \newpage

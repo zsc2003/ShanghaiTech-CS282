@@ -6,20 +6,37 @@ For logistic regression, show that
  =\frac{1}{N} \sum_{n=1}^{N}-y_{n} \mathbf{x}_{n} \theta\left(-y_{n} \mathbf{w}^{\mathrm{T}} \mathbf{x}_{n}\right)
 \end{equation}
 Argue that a `misclassified' example contributes more to the gradient than a correctly classified one.
-\textcolor{blue}{Solution}
+\textcolor{blue}{Solution}\\
+1. Let $\theta(x)=\dfrac{e^x}{1+e^x}=\dfrac{1}{1+e^{-x}}$ be the sigmoid function. \\
+So we have $p(y_n|\mathbf{x}_n;\mathbf{w})=\theta(y_n\mathbf{w}^T\mathbf{x}_n)$, and the maximum likelihood estimation is
+$$ \max\ \prod_{i=1}^{N}p(y_n|\mathbf{x}_n;\mathbf{w})$$
+For a convinient calculation, we take the log of the likelihood function, and then take the negative of it, and take the sample number $N$ into consideration, so we have
+\begin{align*}
+    E_{\text {in }}(\mathbf{w}) &= -\dfrac{1}{N}\log[\prod_{i=1}^{N}p(y_n|\mathbf{x}_n;\mathbf{w})] \\
+    &= -\dfrac{1}{N}\sum_{i=1}^{N}\log \theta(y_n\mathbf{w}^T\mathbf{x}_n)\\
+    &= -\dfrac{1}{N}\sum_{i=1}^{N}\log \dfrac{1}{1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}}\\
+    &= -\dfrac{1}{N}\sum_{i=1}^{N} [- \log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})]\\
+    &= \dfrac{1}{N}\sum_{i=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})
+\end{align*}
+So the gradient of $E_{\text {in }}(\mathbf{w})$ is
+\begin{align*}
+    \nabla E_{\text {in }}(\mathbf{w}) &= \nabla\left[\dfrac{1}{N}\sum_{i=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}) \right] \\
+    &= \dfrac{1}{N}\sum_{i=1}^{N}\nabla \log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})\\
+    &= \dfrac{1}{N}\sum_{i=1}^{N}\dfrac{(-y_n\mathbf{x}_n) e^{-y_n\mathbf{w}^T\mathbf{x}_n}}{1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}}\\
+    &= -\dfrac{1}{N}\sum_{i=1}^{N}\dfrac{y_n\mathbf{x}_n}{1+e^{y_n\mathbf{w}^T\mathbf{x}_n}}\\
+    &= \dfrac{1}{N}\sum_{i=1}^{N}-y_n\mathbf{x}_n\theta(-y_n\mathbf{w}^T\mathbf{x}_n)
+\end{align*}
 
+2. From the property of the sigmoid function, we know that the sigmoid function is monotonic increasing.\\
+So for a correctly classified example, we have $y_n\mathbf{w}^T\mathbf{x}_n>0$, so $\theta(-y_n\mathbf{w}^T\mathbf{x}_n)\in (0,0.5)$.\\
 
+And for a misclassified example, we have $y_n\mathbf{w}^T\mathbf{x}_n<0$, so we have $\theta(-y_n\mathbf{w}^T\mathbf{x}_n)\in (0.5,1)$.\\
 
+From the gradient formula $\nabla  E_{\text {in }}(\mathbf{w})$, the difference between the correctly classified example and the misclassified example is only the sigmoid function.\\
+And we also have the misclassified example's $\theta(-y_n\mathbf{w}^T\mathbf{x}_n)$ is larger than the correctly classified example's $\theta(-y_n\mathbf{w}^T\mathbf{x}_n)$, so the misclassified example contributes more to the gradient than a correctly classified one.\\
 
-
-
-
-
-
-
-
-
-
-
+So above all, we have proved that
+$$\nabla E_{\text {in }}(\mathbf{w})  =-\frac{1}{N} \sum_{n=1}^{N} \frac{y_{n} \mathbf{x}_{n}}{1+e^{y_{n} \mathbf{w}^{\mathrm{T}} \mathbf{x}_{n}}}=\frac{1}{N} \sum_{n=1}^{N}-y_{n} \mathbf{x}_{n} \theta\left(-y_{n} \mathbf{w}^{\mathrm{T}} \mathbf{x}_{n}\right)$$
+And we also proved that the `misclassified' example contributes more to the gradient than a correctly classified one.\\
 
 \newpage

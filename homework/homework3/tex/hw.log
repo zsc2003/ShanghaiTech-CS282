@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  29 MAR 2024 14:42
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  31 MAR 2024 15:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -480,27 +480,70 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 LaTeX Warning: No \author given.
 
-(./section/t1.tex [1
+(./section/t1.tex
+Underfull \vbox (badness 8075) has occurred while \output is active []
+
+ [1
 
 
-]) (./section/t2.tex [2]) (./section/t3.tex
+]
+Underfull \hbox (badness 10000) in paragraph at lines 30--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
+
+ []
+
+[2]) (./section/t2.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--40
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--44
+
+ []
+
+[3]) (./section/t3.tex
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4.
  (c:/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 File: ./image/alg.png Graphic file (type bmp)
 <./image/alg.png>
-) [3] (./hw.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--29
+
+ []
+
+) [4] (./hw.aux)
 Package rerunfilecheck Info: File `hw.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  12720 strings out of 476683
  201800 string characters out of 5807576
- 1848012 words of memory out of 5000000
+ 1858012 words of memory out of 5000000
  32770 multiletter control sequences out of 15000+600000
  530547 words of font info for 55 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,8n,76p,995b,337s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,13n,76p,995b,346s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw.pdf (3 pages).
+Output written on hw.pdf (4 pages).
