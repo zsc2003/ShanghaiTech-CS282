@@ -12,7 +12,7 @@ The function $h^*$ can be treated as a deterministic target function, in which c
 \textcolor{blue}{Solution}\\
 Suppose the joint distribution of $x$ and $y$ is $f(x, y)$, the distribution of $x$ is $f_X(x)$, the distribution of $y$ is $f_Y(y)$, and the conditional distribution of $y$ given $x$ is $f_{Y|X}(y|x)$.\\
 
-Lamma: The law of iterated Expectation
+Lemma: The law of iterated Expectation
 $$\mathbb{E}(Y)=\mathbb{E}_X[\mathbb{E}(Y|X)]$$
 proof:
 \begin{align*}
@@ -28,7 +28,7 @@ proof:
 1. Since $E_{\text{out}}(h)=\mathbb{E}[{(h(x)-y)}^2]=\mathbb{E}_{X,Y}[{(h(x)-y)}^2]$, we have
 \begin{align*}
     \dfrac{\partial E_{\text{out}}(h)}{\partial h} &= 2 \mathbb{E}_{X,Y}[h(x)-y] \\
-    &= 2 \mathbb{E}_X\left[\mathbb{E}\left[(h(x)-y)|x\right]\right] \text{\ \ \ \ \ \ \ (Lamma)} \\
+    &= 2 \mathbb{E}_X\left[\mathbb{E}\left[(h(x)-y)|x\right]\right] \text{\ \ \ \ \ \ \ (Lemma)} \\
     &= 2 \mathbb{E}_X\left[\mathbb{E}\left[h(x)|x\right]-\mathbb{E}\left[y|x\right]\right] \\
     &= 2 \mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]
 \end{align*}
@@ -39,6 +39,6 @@ then $\dfrac{\partial E_{\text{out}}(h)}{\partial h}=0$, which minimizes $E_{\te
 So we have $h^*(x)=\mathbb{E}[y|x]$.\\ 
 
 2. Since $y=h^*(x)+\epsilon(x)$, we have
-$$\mathbb{E}[\epsilon(x)]=\mathbb{E}[y-h^*(x)]=\mathbb{E}(y)-\mathbb{E}[h^*(x)]=\mathbb{E}[y]-\mathbb{E}\left[\mathbb{E}[y|x]\right]\stackrel{\text{Lamma}}{=}\mathbb{E}[y]-\mathbb{E}[y]=0$$
+$$\mathbb{E}[\epsilon(x)]=\mathbb{E}[y-h^*(x)]=\mathbb{E}(y)-\mathbb{E}[h^*(x)]=\mathbb{E}[y]-\mathbb{E}\left[\mathbb{E}[y|x]\right]\stackrel{\text{Lemma}}{=}\mathbb{E}[y]-\mathbb{E}[y]=0$$
 So above all, we have prove that $h^*(x)=\mathbb{E}[y|x]$ and $\epsilon(x)$ has expected value zero.\\
 \newpage

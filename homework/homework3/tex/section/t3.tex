@@ -21,28 +21,36 @@ According to the iterative format provided as follow:
 
 \textcolor{blue}{Solution}
 
-
-
-Each buyer's information has a unique `User ID', so we can just drop the `User ID' column.\\
+After checking the SUV dataset, we could find that each buyer's information has a unique `User ID', so we can just drop the `User ID' column.\\
 To use the `Gender' information, we map `Male' into $1$, and `Female' into $0$.\\
 Then the `Gender', `Age', `EstimatedSalary' can be used as the input features, and the `Purchased' can be used as the output label.\\
+So this is a binary classification problem.\\
+And we can use the logistic regression to solve this problem.\\
 
 1. Since we are applying the logistic regression, so the testing error is:
 $$E_{\text {in }}(\mathbf{w}) = \dfrac{1}{N}\sum_{i=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})$$
 which have been proved in Problem 1. And $N$ is the size of the testing set's size.\\
-And the gradient is:
+
+The size of training set is ? persent, which is totally ? samples. And the testing set is ? persent, which is totally ? samples.\\
+
+2. We have known that the gradient of logistic regression from Problem 1 is:
 $$\nabla E_{\text {in }}(\mathbf{w}) = \dfrac{1}{N}\sum_{i=1}^{N}-y_n\mathbf{x}_n\theta(-y_n\mathbf{w}^T\mathbf{x}_n)$$
 
-
+So the learning rate is set to be
 $\eta = 0.1$
 $\eta_t = \eta\cdot \|\nabla E_{\text{in}}(\mathbf{w})\|$
 
+And the total iterated steps is 
+
+
+3. The results of the last 10 steps are shown as follow:
 
 
 
-
-
-
+TODO:
+1. last 10 steps' output
+2. loss against iteration, gradient norm against iterataion, stepsize against iteration
+3. AUC, ROC curve
 
 
 
