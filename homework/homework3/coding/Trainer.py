@@ -25,5 +25,5 @@ class Trainer:
         return -np.mean(y[:, np.newaxis] * x / (1 + np.exp(y * np.dot(x, w))), axis=0)
     
     def train(self):
-        # eta_t = eta * |grad_t| 
+        # eta_t = eta * |grad_t|
         pass
