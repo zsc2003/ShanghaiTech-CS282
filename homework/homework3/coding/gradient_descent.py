@@ -17,6 +17,8 @@ def main():
     trainer = Trainer(data)
     trainer.train()
 
+    trainer.print_info()
+
 
 if __name__ == '__main__':
     main()
