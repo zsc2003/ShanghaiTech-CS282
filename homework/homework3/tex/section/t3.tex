@@ -8,7 +8,6 @@ According to the iterative format provided as follow:
 \end{itemize}
 \begin{figure}[htbp]
 \centerline{\includegraphics[width=0.8\textwidth]{./image/alg.png}}
-
 \href
   {https://www.cs.toronto.edu/~mhsadi/code-repository/MachineLearningNotebooks/3-SUVDataset.html}
   {Dataset reference and description}
@@ -21,17 +20,42 @@ According to the iterative format provided as follow:
 
 \textcolor{blue}{Solution}
 
+0. Data preperation\\
 After checking the SUV dataset, we could find that each buyer's information has a unique `User ID', so we can just drop the `User ID' column.\\
 To use the `Gender' information, we map `Male' into $1$, and `Female' into $0$.\\
+If we use exponential function, it may be too big with large `Age' and `EstimatedSalary', so we can seperate the `Age' and `EstimatedSalary' into different intervals.
+And use an one-hot vector to represent the which range the `Age' and `EstimatedSalary' belongs to. And the modified encoding for `Age' and `Estimated salary' are as followed in Figure \ref{fig:age} and Figure \ref{fig:salary}.
+The catagoies of `Age' and `EstimatedSalary' are chosen by the distribution graph of the original data, and each catagory is represented by a one-hot vector.\\
+
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{./image/age_distribution.png}
+  \includegraphics[width=0.5\textwidth]{./image/seperated_age.png}
+  \caption{Analysis of Age}  
+\label{fig:age}
+\end{figure}
+
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{./image/salary_distribution.png}
+  \includegraphics[width=0.5\textwidth]{./image/seperated_salary.png}
+  \caption{Analysis of Estimated Salary}  
+\label{fig:salary}
+\end{figure}
+
+To suit better for logistic regression, the `Purchased' column is also modified into `$-1$' for unpurchased and `$1$' for purchased.\\
+And before sending the data into the logistic regression, the input features are normalized.\\
+
 Then the `Gender', `Age', `EstimatedSalary' can be used as the input features, and the `Purchased' can be used as the output label.\\
 So this is a binary classification problem.\\
 And we can use the logistic regression to solve this problem.\\
 
 1. Since we are applying the logistic regression, so the testing error is:
-$$E_{\text {in }}(\mathbf{w}) = \dfrac{1}{N}\sum_{i=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})$$
+$$E(\mathbf{w}) = \dfrac{1}{N}\sum_{i=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})$$
 which have been proved in Problem 1. And $N$ is the size of the testing set's size.\\
+The variation curve for the testing error is shown in Figure \textcolor{red}{?????????????????}.\\
 
-The size of training set is ? persent, which is totally ? samples. And the testing set is ? persent, which is totally ? samples.\\
+
+And the size of training set is $80$ persent, which is totally $280$ samples. And the testing set is $30$ persent, which is totally $120$ samples.\\
+And before seperating the data, we random shuffled the total $400$ data with a fixed seed in order to make sure the randomness, but could be stable reproduction.\\
 
 2. We have known that the gradient of logistic regression from Problem 1 is:
 $$\nabla E_{\text {in }}(\mathbf{w}) = \dfrac{1}{N}\sum_{i=1}^{N}-y_n\mathbf{x}_n\theta(-y_n\mathbf{w}^T\mathbf{x}_n)$$
@@ -40,7 +64,7 @@ So the learning rate is set to be
 $\eta = 0.1$
 $\eta_t = \eta\cdot \|\nabla E_{\text{in}}(\mathbf{w})\|$
 
-And the total iterated steps is 
+And the total iterated steps is set to be $????$.\\
 
 
 3. The results of the last 10 steps are shown as follow:
@@ -58,3 +82,14 @@ TODO:
 
 
 
+
+
+
+
+
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=0.8\textwidth]{./image/alg.png}}
+  \caption{The last 10 steps' output}  
+\end{figure}
+
+The code and the method to run the code are all in the folder `code'.

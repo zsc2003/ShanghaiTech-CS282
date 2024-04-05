@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  2 APR 2024 10:58
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  5 APR 2024 22:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -481,7 +481,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 LaTeX Warning: No \author given.
 
 (./section/t1.tex
-Underfull \vbox (badness 8075) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [1
 
@@ -529,31 +529,66 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 File: ./image/alg.png Graphic file (type bmp)
 <./image/alg.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--29
+Underfull \hbox (badness 10000) in paragraph at lines 23--29
+
+ []
+
+File: ./image/age_distribution.png Graphic file (type bmp)
+<./image/age_distribution.png>
+File: ./image/seperated_age.png Graphic file (type bmp)
+<./image/seperated_age.png>
+
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 31--33
+[][] [] 
+ []
+
+File: ./image/salary_distribution.png Graphic file (type bmp)
+<./image/salary_distribution.png>
+File: ./image/seperated_salary.png Graphic file (type bmp)
+<./image/seperated_salary.png>
+
+Overfull \hbox (1.90002pt too wide) in paragraph at lines 38--40
+[][] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--46
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--33
+Underfull \hbox (badness 10000) in paragraph at lines 47--50
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 52--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
-) [4] (./hw.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+File: ./image/alg.png Graphic file (type bmp)
+<./image/alg.png>
+) [5] [6] (./hw.aux)
 Package rerunfilecheck Info: File `hw.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 12720 strings out of 476683
- 201800 string characters out of 5807576
+ 12755 strings out of 476683
+ 202836 string characters out of 5807576
  1858012 words of memory out of 5000000
- 32770 multiletter control sequences out of 15000+600000
+ 32801 multiletter control sequences out of 15000+600000
  530547 words of font info for 55 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,13n,76p,995b,346s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw.pdf (4 pages).
+Output written on hw.pdf (6 pages).
