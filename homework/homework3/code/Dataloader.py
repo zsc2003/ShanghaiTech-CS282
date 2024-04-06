@@ -10,8 +10,18 @@ class DataLoader:
         self.process_data()
 
         # shuffle the data with fixed random state
-        self.data_shuffled = self.data.sample(frac=1, random_state=0).reset_index(drop=True)
+        self.data_shuffled = self.data.sample(frac=1, random_state=42).reset_index(drop=True)
         self.training_data, self.training_label, self.testing_data, self.testing_label = self.split_data()
+
+        # normalize the data
+        training_mean = self.training_data.mean()
+        training_std = self.training_data.std()
+        testing_mean = self.testing_data.mean()
+        testing_std = self.testing_data.std()
+
+        self.training_data = (self.training_data - training_mean) / training_std
+        self.testing_data = (self.testing_data - testing_mean) / testing_std
+
         
     def load_data(self):
         with open(self.path) as f:
@@ -50,6 +60,13 @@ class DataLoader:
         plt.show()
 
         self.data = pd.get_dummies(self.data, columns=['EstimatedSalary'], dtype=int)
+
+        # add a bias term
+        self.data['bias'] = 1
+
+        # modify Purchased to +1 and -1(0 -> -1)
+        self.data['Purchased'] = self.data['Purchased'].map({0 : -1, 1 : 1})
+
 
     def split_data(self):
         training_rate = 0.7
