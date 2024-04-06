@@ -2,7 +2,6 @@ import argparse
 from Dataloader import DataLoader
 from Trainer import Trainer
 
-
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--path', type=str, default='./suv_data.csv')

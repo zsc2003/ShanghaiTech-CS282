@@ -18,7 +18,7 @@ class Trainer:
         self.lr = []
         self.grad_norm = []
         self.testing_acc = []
-        self.testing_error = []
+        self.testing_loss = []
         self.func_evals_list = []
         self.grad_evals_list = []
 
@@ -47,16 +47,14 @@ class Trainer:
             
             # eta_t = eta * |grad_t|
             eta_t = self.eta * gradient_t_norm
-            # eta_t = min(0.1,gradient_t_norm )
-            # eta_t = 1
             w = w - eta_t * gradient_t
 
             self.loss.append(self.get_loss(self.training_data, self.training_labels, w))
+            self.testing_loss.append(self.get_loss(self.testing_data, self.testing_labels, w))
             self.lr.append(eta_t)
             self.grad_norm.append(gradient_t_norm)
             self.func_evals_list.append(self.func_evals)
             self.grad_evals_list.append(self.grad_evals)
-            self.testing_error.append(self.get_loss(self.testing_data, self.testing_labels, w))
 
             # calculate the accuracy on the testing data
             prediction = np.dot(self.testing_data, w)
@@ -97,6 +95,6 @@ class Trainer:
         plt.show()
 
         plt.figure(5)
-        plt.plot(self.testing_error)
-        plt.title('Testing Error')
+        plt.plot(self.testing_loss)
+        plt.title('Testing Loss')
         plt.show()
