@@ -30,13 +30,14 @@ proof:
     \dfrac{\partial E_{\text{out}}(h)}{\partial h} &= 2 \mathbb{E}_{X,Y}[h(x)-y] \\
     &= 2 \mathbb{E}_X\left[\mathbb{E}\left[(h(x)-y)|x\right]\right] \text{\ \ \ \ \ \ \ (Lemma)} \\
     &= 2 \mathbb{E}_X\left[\mathbb{E}\left[h(x)|x\right]-\mathbb{E}\left[y|x\right]\right] \\
-    &= 2 \mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]
+    &= 2 \mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]\\\\
+    \dfrac{\partial^2 E_{\text{out}}(h)}{\partial h^2} &= 2 > 0
 \end{align*}
 
-The necessary condition for minimizing the $E_{\text{out}}(h)$ is to let $2 \mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]=0$.
-Since $\mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]$ is the function of $x$, so if $h(x)-\mathbb{E}\left[y|x\right]=0$, 
-then $\dfrac{\partial E_{\text{out}}(h)}{\partial h}=0$, which is the necessary condition that minimizes $E_{\text{out}}(h)$.\\
-So we have $h^*(x)=\mathbb{E}[y|x]$.\\ 
+So $E_{\text{out}}(h)$ is a convex function for $h$.\\
+For minimizing the $E_{\text{out}}(h)$, we just need to let $\dfrac{\partial E_{\text{out}}(h)}{\partial h}=2 \mathbb{E}_X\left[h(x)-\mathbb{E}\left[y|x\right]\right]=0$.\\
+If $h(x)-\mathbb{E}\left[y|x\right]=0$, then $\dfrac{\partial E_{\text{out}}(h)}{\partial h}=0$.\\
+So we have $h^*(x)=\mathbb{E}[y|x]$ minimizes $E_{\text{out}}$.\\ 
 
 2. Since $y=h^*(x)+\epsilon(x)$, we have
 $$\mathbb{E}[\epsilon(x)]=\mathbb{E}[y-h^*(x)]=\mathbb{E}(y)-\mathbb{E}[h^*(x)]=\mathbb{E}[y]-\mathbb{E}\left[\mathbb{E}[y|x]\right]\stackrel{\text{Lemma}}{=}\mathbb{E}[y]-\mathbb{E}[y]=0$$

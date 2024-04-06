@@ -7,7 +7,7 @@ According to the iterative format provided as follow:
     \item Present the results of the last 10 steps produced by your algorithm, including the loss, learning rate, the L2 norm of the gradient, and the number of function evaluations and gradient evaluations.
 \end{itemize}
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.8\textwidth]{./image/alg.png}}
+\centerline{\includegraphics[width=\textwidth]{../image/alg.png}}
 \href
   {https://www.cs.toronto.edu/~mhsadi/code-repository/MachineLearningNotebooks/3-SUVDataset.html}
   {Dataset reference and description}
@@ -23,25 +23,26 @@ According to the iterative format provided as follow:
 0. Data preperation\\
 After checking the SUV dataset, we could find that each buyer's information has a unique `User ID', so we can just drop the `User ID' column.\\
 To use the `Gender' information, we map `Male' into $1$, and `Female' into $0$.\\
-If we use exponential function, it may be too big with large `Age' and `EstimatedSalary', so we can seperate the `Age' and `EstimatedSalary' into different intervals.
+If we use exponential function during the logistic regression, it may have too big values with large `Age' and `EstimatedSalary', so we can seperate the `Age' and `EstimatedSalary' into different intervals.
 And use an one-hot vector to represent the which range the `Age' and `EstimatedSalary' belongs to. And the modified encoding for `Age' and `Estimated salary' are as followed in Figure \ref{fig:age} and Figure \ref{fig:salary}.
 The catagoies of `Age' and `EstimatedSalary' are chosen by the distribution graph of the original data, and each catagory is represented by a one-hot vector.\\
 
 \begin{figure}[htbp]
-  \includegraphics[width=0.5\textwidth]{./image/age_distribution.png}
-  \includegraphics[width=0.5\textwidth]{./image/seperated_age.png}
+  \includegraphics[width=0.5\textwidth]{../image/age_distribution.png}
+  \includegraphics[width=0.5\textwidth]{../image/seperated_age.png}
   \caption{Analysis of Age}  
 \label{fig:age}
 \end{figure}
 
 \begin{figure}[htbp]
-  \includegraphics[width=0.5\textwidth]{./image/salary_distribution.png}
-  \includegraphics[width=0.5\textwidth]{./image/seperated_salary.png}
+  \includegraphics[width=0.5\textwidth]{../image/salary_distribution.png}
+  \includegraphics[width=0.5\textwidth]{../image/seperated_salary.png}
   \caption{Analysis of Estimated Salary}  
 \label{fig:salary}
 \end{figure}
 
 To suit better for logistic regression, the `Purchased' column is also modified into `$-1$' for unpurchased and `$1$' for purchased.\\
+At last, a bias term `$1$ is add for each input fetures. 
 And before sending the data into the logistic regression, the input features are normalized.\\
 
 Then the `Gender', `Age', `EstimatedSalary' can be used as the input features, and the `Purchased' can be used as the output label.\\
@@ -50,46 +51,55 @@ And we can use the logistic regression to solve this problem.\\
 
 1. Since we are applying the logistic regression, so the testing error is:
 $$E(\mathbf{w}) = \dfrac{1}{N}\sum_{i=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})$$
-which have been proved in Problem 1. And $N$ is the size of the testing set's size.\\
-The variation curve for the testing error is shown in Figure \textcolor{red}{?????????????????}.\\
+which have been proved in Problem 1. And $N$ is the size of the testing set's size. $y_n$ are the labels of
+testing set, $\mathbf{x}_n$ are the input data for the testing set.\\
+The variation curve for the testing error is shown in Figure \ref{fig:testing}.\\
 
-
-And the size of training set is $80$ persent, which is totally $280$ samples. And the testing set is $30$ persent, which is totally $120$ samples.\\
+And the size of training set is $70$ persent, which is totally $280$ samples. And the testing set is $30$ persent, which is totally $120$ samples.\\
 And before seperating the data, we random shuffled the total $400$ data with a fixed seed in order to make sure the randomness, but could be stable reproduction.\\
 
 2. We have known that the gradient of logistic regression from Problem 1 is:
 $$\nabla E_{\text {in }}(\mathbf{w}) = \dfrac{1}{N}\sum_{i=1}^{N}-y_n\mathbf{x}_n\theta(-y_n\mathbf{w}^T\mathbf{x}_n)$$
+$\nabla E_{\text {in }}(\mathbf{w}),y_n,\mathbf{x}_n$ are set for the training set.\\
+To set the learning rate getting smaller as the training iterations go on, we can set the learning rate as:
+$$\eta_t = \eta\cdot \|\nabla E_{\text{in}}(\mathbf{w})\|$$
+where $\eta=0.2$ is the initial learning rate, and $\|\nabla E_{\text{in}}(\mathbf{w})\|$ is the norm of the gradient.\\
+And the total iterated steps is set to be $5000$ iterataions.\\ 
 
-So the learning rate is set to be
-$\eta = 0.1$
-$\eta_t = \eta\cdot \|\nabla E_{\text{in}}(\mathbf{w})\|$
-
-And the total iterated steps is set to be $????$.\\
-
-
-3. The results of the last 10 steps are shown as follow:
-
-
-
-TODO:
-1. last 10 steps' output
-2. loss against iteration, gradient norm against iterataion, stepsize against iteration
-3. AUC, ROC curve
-
-
-
-
-
-
-
-
-
-
-
+3. The results of the last 10 steps are shown in Figure \ref{fig:info}.\\
+We could see that the training loss, the $L_2$ norm of the gradient $\|\nabla E_{\text{in}}(\mathbf{w})\|$ are dropping, but quite slow, which is close to get converage.\\
+And the number of the gradient evaluations is once per iterataion, used for updating the $\mathbf{w}$.\\
+And the number of the gradient evaluations is twice per iterataion, used for calculating the loss for both training set and the testing set.\\
 
 \begin{figure}[htbp]
-  \centerline{\includegraphics[width=0.8\textwidth]{./image/alg.png}}
-  \caption{The last 10 steps' output}  
+  \centerline{\includegraphics[width=\textwidth]{../image/info.png}}
+  \caption{The last 10 steps' output} 
+  \label{fig:info} 
 \end{figure}
 
-The code and the method to run the code are all in the folder `code'.
+4. Analysis:\\
+Figure \ref{fig:testing} are the testing accuracy and testing loss. From the 
+testing loss, we could find that the model somehow overfitted on the training data, as the 
+testing loss gradually becomes higher as the iterataions grow. But the testing accuracy was not effected so much,
+it might because the dataset is small, and the data distribution are regular, so overfitting on the training set did not make testing accuracy got worse.\\
+
+Figure \ref{fig:training} are the gradient's $L_2$ norm $\|\nabla E_{\text{in}}(\mathbf{w})\|$, the learning rate $\eta_t = \eta\cdot \|\nabla E_{\text{in}}(\mathbf{w})\|$, and the training loss.\\
+The learning rate is obviously to have the same trend with the $\|\nabla E_{\text{in}}(\mathbf{w})\|$ as they have the proportional relationship. The training loss also has the 
+quite same trend with them. Decreasing rapidly at first, and getting much slower as getting converage.\\
+
+5. The code and the method to run the code are all in the folder `code'.
+
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=0.7\textwidth]{../image/grad_norm.png}}
+  \centerline{\includegraphics[width=0.7\textwidth]{../image/learning_rate.png}}
+  \centerline{\includegraphics[width=0.7\textwidth]{../image/training_loss.png}}
+  \caption{The training information}
+  \label{fig:training}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centerline{\includegraphics[width=\textwidth]{../image/testing_acc.png}}
+  \centerline{\includegraphics[width=\textwidth]{../image/testing_loss.png}}
+  \caption{The testing information}
+  \label{fig:testing}
+\end{figure}
