@@ -9,26 +9,26 @@ Argue that a `misclassified' example contributes more to the gradient than a cor
 \textcolor{blue}{Solution}\\
 1. Let $\theta(x)=\dfrac{e^x}{1+e^x}=\dfrac{1}{1+e^{-x}}$ be the sigmoid function. \\
 So we have $p(y_n|\mathbf{x}_n;\mathbf{w})=\theta(y_n\mathbf{w}^T\mathbf{x}_n)$, and the maximum likelihood estimation is
-$$ \max\ \prod_{i=1}^{N}p(y_n|\mathbf{x}_n;\mathbf{w})$$
-For a convinient calculation, we take the log of the likelihood function, and then take the negative of it, and take the sample number $N$ into consideration, so we have
+$$ \max\ \prod_{n=1}^{N}p(y_n|\mathbf{x}_n;\mathbf{w})$$
+For a convinient calculation, we take the log of the likelihood function, and then take the negative of it, and take mean of each term, so we have what we want to minimize:
 \begin{align*}
-    E_{\text {in }}(\mathbf{w}) &= -\dfrac{1}{N}\log[\prod_{i=1}^{N}p(y_n|\mathbf{x}_n;\mathbf{w})] \\
-    &= -\dfrac{1}{N}\sum_{i=1}^{N}\log \theta(y_n\mathbf{w}^T\mathbf{x}_n)\\
-    &= -\dfrac{1}{N}\sum_{i=1}^{N}\log \dfrac{1}{1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}}\\
-    &= -\dfrac{1}{N}\sum_{i=1}^{N} [- \log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})]\\
-    &= \dfrac{1}{N}\sum_{i=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})
+    E_{\text {in }}(\mathbf{w}) &= -\dfrac{1}{N}\log[\prod_{n=1}^{N}p(y_n|\mathbf{x}_n;\mathbf{w})] \\
+    &= -\dfrac{1}{N}\sum_{n=1}^{N}\log \theta(y_n\mathbf{w}^T\mathbf{x}_n)\\
+    &= -\dfrac{1}{N}\sum_{n=1}^{N}\log \dfrac{1}{1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}}\\
+    &= -\dfrac{1}{N}\sum_{n=1}^{N} [- \log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})]\\
+    &= \dfrac{1}{N}\sum_{n=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})
 \end{align*}
 So the gradient of $E_{\text {in }}(\mathbf{w})$ is
 \begin{align*}
-    \nabla E_{\text {in }}(\mathbf{w}) &= \nabla\left[\dfrac{1}{N}\sum_{i=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}) \right] \\
-    &= \dfrac{1}{N}\sum_{i=1}^{N}\nabla \log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})\\
-    &= \dfrac{1}{N}\sum_{i=1}^{N}\dfrac{(-y_n\mathbf{x}_n) e^{-y_n\mathbf{w}^T\mathbf{x}_n}}{1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}}\\
-    &= -\dfrac{1}{N}\sum_{i=1}^{N}\dfrac{y_n\mathbf{x}_n}{1+e^{y_n\mathbf{w}^T\mathbf{x}_n}}\\
-    &= \dfrac{1}{N}\sum_{i=1}^{N}-y_n\mathbf{x}_n\theta(-y_n\mathbf{w}^T\mathbf{x}_n)
+    \nabla E_{\text {in }}(\mathbf{w}) &= \nabla\left[\dfrac{1}{N}\sum_{n=1}^{N}\log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}) \right] \\
+    &= \dfrac{1}{N}\sum_{n=1}^{N}\nabla \log (1+e^{-y_n\mathbf{w}^T\mathbf{x}_n})\\
+    &= \dfrac{1}{N}\sum_{n=1}^{N}\dfrac{(-y_n\mathbf{x}_n) e^{-y_n\mathbf{w}^T\mathbf{x}_n}}{1+e^{-y_n\mathbf{w}^T\mathbf{x}_n}}\\
+    &= -\dfrac{1}{N}\sum_{n=1}^{N}\dfrac{y_n\mathbf{x}_n}{1+e^{y_n\mathbf{w}^T\mathbf{x}_n}}\\
+    &= \dfrac{1}{N}\sum_{n=1}^{N}-y_n\mathbf{x}_n\theta(-y_n\mathbf{w}^T\mathbf{x}_n)
 \end{align*}
 
 2. From the property of the sigmoid function, we know that the sigmoid function is monotonic increasing.\\
-So for a correctly classified example, we have $y_n\mathbf{w}^T\mathbf{x}_n>0$, so $\theta(-y_n\mathbf{w}^T\mathbf{x}_n)\in (0,0.5)$.\\
+So for a correctly classified example, we have $y_n\mathbf{w}^T\mathbf{x}_n\geq 0$, so $\theta(-y_n\mathbf{w}^T\mathbf{x}_n)\in (0,0.5]$.\\
 
 And for a misclassified example, we have $y_n\mathbf{w}^T\mathbf{x}_n<0$, so we have $\theta(-y_n\mathbf{w}^T\mathbf{x}_n)\in (0.5,1)$.\\
 
