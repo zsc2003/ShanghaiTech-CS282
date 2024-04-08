@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  6 APR 2024 20:49
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  8 APR 2024 22:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -572,24 +572,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--60
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--73
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
 
  []
 
-File: ../image/info.png Graphic file (type bmp)
-<../image/info.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--85
+Underfull \hbox (badness 10000) in paragraph at lines 72--76
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 86--89
+File: ../image/info.png Graphic file (type bmp)
+<../image/info.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--92
 
  []
 
@@ -604,9 +610,6 @@ File: ../image/testing_acc.png Graphic file (type bmp)
 File: ../image/testing_loss.png Graphic file (type bmp)
 <../image/testing_loss.png>
 ) [6] [7] [8] (./hw.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `hw.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
