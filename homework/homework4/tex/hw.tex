@@ -60,24 +60,36 @@ For problem 3 in assignment 3, change your GD code to SGD and complete the tasks
 \end{itemize}
 
 \textcolor{blue}{Solution:}\\
-0. Data preparation: The data is the same as the data in assignment 3.:
-The data is divided into training set and validation set. The training set is used to train the model, and the validation set is used to evaluate the model. The data is normalized to make the data have zero mean and unit variance. The data is shuffled to make the data have no order.
+\begin{figure}[htbp]
+  \includegraphics[width=\textwidth]{../image/alg.png}
+  \caption{Stochastic Gradient Descent}
+\label{fig:SGD}
+\end{figure}
+
+The SGD algorithm is implmented following the Pseudo code in Figure \ref{fig:SGD}.\\
+
+0. Data preparation: The data is treated in the same way as the data in assignment 3:\\
+The  `User ID' column is dropped, the `Age' and `EstimatedSalary' are separated into different intervals. At last, a bias term `$1$' is add for each input fetures.\\
+And the features are normalized to make the data have zero mean and unit variance.\\
+And before seperating the data, we random shuffled the total 400 data with a fixed seed in order to make sure the randomness, but could be stable reproduction.\\
+The data is divided into training set, validation set, and testing set. The training set is used to train the model, and the validation set is used to evaluate the model for selecting the most suitable learning rate, and the testing set is used to evaluate the model for the final performance. 
+The size of training, validation, and testing set is $240$, $80$, $80$ respectively, which is $60\%$, $20\%$, $20\%$ of the total data.
 
 1. The code and the method to run the code are all in the folder `code'.
 
-2. The mini-batch size is set to be $1$ as we are applying the stochastic gradient descent.
-
-3. The learning rate $\eta$ is tried with the following values: $0.1, 0.01, 0.001, 0.0001$. The learning rate for each step is similarly with the GD method, i.e. set $\eta_t = \eta\|\nabla e_t\|$. The learning rate is chosen by the learning rate schedule. 
-From the results show in Figure \ref{fig:learning_rate}, we can see that the learning rate $\eta = 0.1$ is too large, which makes the loss diverge. The learning rate $\eta = 0.01$ is also too large, which makes the loss oscillate.
-The learning rate $\eta = 0.001$ is a good choice, which makes the loss converge. The learning rate $\eta = 0.0001$ is too small, which makes the loss converge slowly.
-So we finally choose the learning rate $\eta = 0.001$.
-The accuracy in the validation set.
+2. The mini-batch size is set to be $1$ as we are applying the stochastic gradient descent.\\
+And the diction is set to be $-\nabla $:
 
 
+3. The learning rate $\eta$ is tried with the following values: $0.08, 0.04, 0.02, 0.01, 0.005, 0.0025$.\\
+From the results show in Figure \ref{fig:learning_rate}, we can see that the learning rate $\eta = 0.05$ has the best accuracy on the validation set. So we take the $\eta=0.05$ as the final learning rate to test on the testing set.
 
-4. The termination condition is chosen by the number of iterations. The number of iterations should be large enough to make the loss converge.
+4. The termination condition is chosen by reaching the number of iterations: $100000$, which is large enough to make the loss converge.
 
-5. The impact of different learning rates on the accuracy of the solution is shown in Figure \ref{fig:learning_rate}.
+5. The impact of different learning rates on the accuracy of the solution is shown in Figure \ref{fig:learning_rate}. And we can see that in the suitable range, the loss is convergence to lower value as the learning rate get smaller, which suits the regular to the image on page $34$ of the Lecture $6$-SGD PPT.\\
+But we can also notice that if the learning rate is too small($\eta=0.0025$), the loss will converge to a non-optimal value. Perhaps this is because the learning rate is too small and unsuitable for the model to learn the data.\\
+
+And the Figure \ref{fig:learning_rate} is xxxxxx.\\
 
 % \begin{figure}[htbp]
 %   \includegraphics[width=0.5\textwidth]{../image/learning_rate.png}
