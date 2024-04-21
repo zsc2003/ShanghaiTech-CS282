@@ -78,36 +78,45 @@ The size of training, validation, and testing set is $240$, $80$, $80$ respectiv
 1. The code and the method to run the code are all in the folder `code'.
 
 2. The mini-batch size is set to be $1$ as we are applying the stochastic gradient descent.\\
-And the diction is set to be $-\nabla $:
+And the diction is set to be $$g(\mathbf{w}_k,\xi_k)=-\nabla e_k(\mathbf{w}_k)=\dfrac{-y_k\mathbf{x}_k}{1+e^{y_k\mathbf{w}_k^T\mathbf{x}_k}}$$
 
 
 3. The learning rate $\eta$ is tried with the following values: $0.08, 0.04, 0.02, 0.01, 0.005, 0.0025$.\\
-From the results show in Figure \ref{fig:learning_rate}, we can see that the learning rate $\eta = 0.05$ has the best accuracy on the validation set. So we take the $\eta=0.05$ as the final learning rate to test on the testing set.
+From the results show in Figure \ref{fig:training}, we can see that the learning rate $\eta = 0.01$ has the best accuracy on the validation set. So we take the $\eta=0.01$ as the final learning rate to test on the testing set.
 
-4. The termination condition is chosen by reaching the number of iterations: $100000$, which is large enough to make the loss converge.
+4. The termination condition is chosen by reaching the number of iterations: $50000$, which is large enough to make the loss converge.
 
-5. The impact of different learning rates on the accuracy of the solution is shown in Figure \ref{fig:learning_rate}. And we can see that in the suitable range, the loss is convergence to lower value as the learning rate get smaller, which suits the regular to the image on page $34$ of the Lecture $6$-SGD PPT.\\
-But we can also notice that if the learning rate is too small($\eta=0.0025$), the loss will converge to a non-optimal value. Perhaps this is because the learning rate is too small and unsuitable for the model to learn the data.\\
+5. The impact of different learning rates on the accuracy of the solution is shown in Figure \ref{fig:training}. And we can see that in the suitable range, the loss is convergence to lower value as the learning rate get smaller, which suits the regular to the image on page $34$ of the Lecture $6$-SGD PPT.
+From the last $1000$ iterations of training process, it could be seen clearly.\\
+But we can also notice that if the learning rate is too small($\eta=0.005,0.0025$), the loss will converge to a non-better value than $\eta=0.01$. Perhaps this is because the learning rate is too small and unsuitable for the model to learn the data. But from the tends of $\eta=0.08,0.04,0.02,0.01$, we would see that the lower learning rate could reach a better convergence loss, and have a better performance.\\
 
-And the Figure \ref{fig:learning_rate} is xxxxxx.\\
+And the Figure \ref{fig:valid} is the accuracy and loss on validation set, form the validation set, we choose the learning rate that has the best accuracy, so $\eta=0.01$ is selected.\\
 
-% \begin{figure}[htbp]
-%   \includegraphics[width=0.5\textwidth]{../image/learning_rate.png}
-%   \caption{Impact of different learning rates on the accuracy of the solution}
-% \label{fig:learning_rate}
-% \end{figure}
+And the Figure \ref{fig:test} is the test accuracy and loss with the best learning rate $\eta=0.01$.\\
+The final prediction accuracy is $\dfrac{73}{80}=0.9125$.\\
+And the testing loss curve could be seen has the overfitted trend.\\
 
-
-
-
-
-
-
-
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{../image/training_loss.png}
+  \includegraphics[width=0.5\textwidth]{../image/training_loss_part.png}
+  \caption{Impact of different learning rates on the training loss}
+\label{fig:training}
+\end{figure}
 
 
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{../image/valid_acc.png}
+  \includegraphics[width=0.5\textwidth]{../image/valid_loss.png}
+  \caption{Impact of different learning rates on the validation accuracy and loss}
+\label{fig:valid}
+\end{figure}
 
 
-
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{../image/testing_acc.png}
+  \includegraphics[width=0.5\textwidth]{../image/testing_loss.png}
+  \caption{Accuracy and loss for best learning rate $\eta=0.01$ on the testing set}
+\label{fig:test}
+\end{figure}
 
 \end{document}
