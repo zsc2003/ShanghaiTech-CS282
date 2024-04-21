@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  17 APR 2024 11:30
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  21 APR 2024 20:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -343,40 +343,70 @@ Package graphics Info: Driver file: xetex.def on input line 107.
 )
 \Gin@req@height=\dimen176
 \Gin@req@width=\dimen177
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count291
+\lst@gtempboxa=\box55
+\lst@token=\toks31
+\lst@length=\count292
+\lst@currlwidth=\dimen178
+\lst@column=\count293
+\lst@pos=\count294
+\lst@lostspace=\dimen179
+\lst@width=\dimen180
+\lst@newlines=\count295
+\lst@lineno=\count296
+\lst@maxwidth=\dimen181
+ (c:/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count297
+\lst@skipnumbers=\count298
+\lst@framebox=\box56
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+ (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (c:/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 ) (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2023-01-16 L3 backend support: XeTeX
-\g__graphics_track_int=\count291
-\l__pdf_internal_box=\box55
-\g__pdf_backend_object_int=\count292
-\g__pdf_backend_annotation_int=\count293
-\g__pdf_backend_link_int=\count294
+\g__graphics_track_int=\count299
+\l__pdf_internal_box=\box57
+\g__pdf_backend_object_int=\count300
+\g__pdf_backend_annotation_int=\count301
+\g__pdf_backend_link_int=\count302
 ) (./hw.aux)
 \openout1 = `hw.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 88.
  (c:/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -444,17 +474,17 @@ LaTeX Font Info:    ... okay on input line 44.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 44.
+Package hyperref Info: Link coloring OFF on input line 88.
 (./hw.out) (./hw.out)
 \@outlinefile=\write3
 \openout3 = `hw.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 44.
-Package microtype Info: Applying patch `item' on input line 44.
-Package microtype Info: Applying patch `toc' on input line 44.
-Package microtype Info: Applying patch `eqnum' on input line 44.
-Package microtype Info: Applying patch `footnote' on input line 44.
-Package microtype Info: Applying patch `verbatim' on input line 44.
+LaTeX Info: Redefining \microtypecontext on input line 88.
+Package microtype Info: Applying patch `item' on input line 88.
+Package microtype Info: Applying patch `toc' on input line 88.
+Package microtype Info: Applying patch `eqnum' on input line 88.
+Package microtype Info: Applying patch `footnote' on input line 88.
+Package microtype Info: Applying patch `verbatim' on input line 88.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -462,16 +492,18 @@ Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
  (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
-) (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+)
+\c@lstlisting=\count303
+ (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-msb.cfg
@@ -479,36 +511,57 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
 
-] (./section/t1.tex [2]) (./section/t2.tex
+] (./section/t1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+[2] [3]) (./section/t2.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-[3]) (./section/t3.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-[4]) (./section/t4.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-[5]) (./section/t5.tex
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9.
+(c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+) (../p2.py
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4.
  (c:/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)) [6] (./hw.aux)
+)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 17.
+ (c:/texlive/2023/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 23--25
+
+ []
+
+[4]) (./section/t3.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+[5]) (./section/t4.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+[6]) (./section/t5.tex) [7] (./hw.aux)
 Package rerunfilecheck Info: File `hw.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 12711 strings out of 476683
- 201675 string characters out of 5807576
- 1846012 words of memory out of 5000000
- 32762 multiletter control sequences out of 15000+600000
- 529620 words of font info for 52 fonts, out of 8000000 for 9000
+ 14177 strings out of 476683
+ 223389 string characters out of 5807576
+ 2002012 words of memory out of 5000000
+ 34194 multiletter control sequences out of 15000+600000
+ 533593 words of font info for 56 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,8n,76p,995b,337s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,11n,76p,995b,1113s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hw.pdf (6 pages).
+Output written on hw.pdf (7 pages).

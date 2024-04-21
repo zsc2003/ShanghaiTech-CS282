@@ -6,45 +6,52 @@ $$
 $$
 
 \textcolor{blue}{Solution}\\
-1. $1+N$:
+\begin{itemize}
+    \item[1. ] $1+N$:\\
+    Since $1+1=2^1$, and $1+2<2^2$, so $k=2$ is the breakpoint.
+    $$\sum_{i=0}^{k-1} \binom{N}{i} = \sum_{i=0}^{1} \binom{N}{i} = 1+N$$
+    Since $$m_{\mathcal{H}}(N)=1+N\leq \sum_{i=0}^{k-1} \binom{N}{i}$$
+    So $m_{\mathcal{H}}(N)=1+N$ is a possible growth function.
+    
+    \item[2. ]  $1+N+\dfrac{N(N-1)}{2}$:\\
+    Since $1+2+\dfrac{2*1}{2}=2^2$, and $1+3+\dfrac{3*2}{2}<2^3$, so $k=3$ is the breakpoint.
+    $$\sum_{i=0}^{k-1} \binom{N}{i} = \sum_{i=0}^{2} \binom{N}{i} = 1+N+\dfrac{N(N-1)}{2}$$
+    So $$m_{\mathcal{H}}(N)=1+N+\dfrac{N(N-1)}{2}\leq \sum_{i=0}^{k-1} \binom{N}{i}$$
+    So $m_{\mathcal{H}}(N)=1+N+\dfrac{N(N-1)}{2}$ is a possible growth function.
+    
+    \item[3. ] $2^N$:\\
+    $\forall k=1,2,\cdots,N$, we have
+    $$m_{\mathcal{H}}(N)=2^N$$
+    So the breakpoint is $k=\infty$.
+    $$\sum_{i=0}^{k-1} \binom{N}{i} = 2^N$$
+    So $$m_{\mathcal{H}}(N)=2^N\leq \sum_{i=0}^{k-1} \binom{N}{i}$$
+    So $m_{\mathcal{H}}(N)=2^N$ is a possible growth function.
+    
+    \item[4.] $2^{\lfloor\sqrt{N}\rfloor}$:\\
+    Since $2^{\lfloor\sqrt{1}\rfloor}=2^1$ and $2^{\lfloor\sqrt{2}\rfloor}<2^2$, so $k=2$ is the breakpoint.
+    $$\sum_{i=0}^{k-1} \binom{N}{i} = \sum_{i=0}^{1} \binom{N}{i} = 1+N$$
+    But $m_{\mathcal{H}}(N)=2^{\lfloor\sqrt{N}\rfloor}$ is close to a exponential function, and the $1+N$ is polynormial function, so it must has a $N$, such as $N=25$:
+    $$m_{\mathcal{H}}(N)=32>1+N=26$$
+    So $m_{\mathcal{H}}(N)=2^{\lfloor\sqrt{N}\rfloor}$ is not a possible growth function.
 
-
-
-
-
-2. $1+N+\dfrac{N(N-1)}{2}$:
-
-
-
-
-3. $2^N$:
-
-
-
-
-4. $2^{\lfloor\sqrt{N}\rfloor}$:
-
-
-
-
-
-5. $2^{\lfloor \frac{N}{2} \rfloor}$:
-
-
-
-
-
-6. $1+N+\dfrac{N(N-1)(N-2)}{6}$:
-
-
-
-
-
-
-
-
-
-
-
+    \item[5.] $2^{\lfloor \frac{N}{2} \rfloor}$:\\
+    Since $2^{\lfloor \frac{0}{2}\rfloor}=2^0$ and $2^{\lfloor \frac{1}{2}\rfloor}=1<2^1$, so $k=1$ is the breakpoint.
+    $$\sum_{i=0}^{k-1} \binom{N}{i} = \sum_{i=0}^{0} \binom{N}{i} = 1$$
+    But $m_{\mathcal{H}}(N)=2^{\lfloor\frac{N}{2}\rfloor}$ is an increasing function, and the $1$ is a constant function, so $\forall N\geq 2$
+    $$m_{\mathcal{H}}(N)=2^{\lfloor \frac{N}{2}\rfloor}>1$$
+    So $m_{\mathcal{H}}(N)=2^{\lfloor \frac{N}{2}\rfloor}$ is not a possible growth function.
+    
+    \item[6.] $1+N+\dfrac{N(N-1)(N-2)}{6}$:\\
+    Since $1+1+\dfrac{1(1-1)(1-2)}{6}=2^1$ and $1+2+\dfrac{2(2-1)(2-2)}{6}=3<2^2$, so $k=2$ is the breakpoint.
+    $$\sum_{i=0}^{k-1} \binom{N}{i} = \sum_{i=2}^{0} \binom{N}{i} = 1+N$$
+    But when $\dfrac{N(N-1)(N-2)}{6}\neq 0$, i.e. $N\geq 3$, we have
+    $$m_{\mathcal{H}}(N)=1+N+\dfrac{N(N-1)(N-2)}{6}>1+N$$
+    So $m_{\mathcal{H}}(N)=1+N+\dfrac{N(N-1)(N-2)}{6}$ is not a possible growth function.
+    
+\end{itemize}
+So above all, the possible growth functions $m_{\mathcal{H}}(N)$ are 
+$$1+N ; 1+N+\dfrac{N(N-1)}{2}; 2^N $$
+And the followings are not possible growth functions.
+$$ 2^{\lfloor\sqrt{N}\rfloor} ; 2^{\lfloor \frac{N}{2} \rfloor}; 1+N+\dfrac{N(N-1)(N-2)}{6} $$
 
 \newpage

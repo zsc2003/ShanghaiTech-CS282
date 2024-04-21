@@ -4,11 +4,23 @@ For an $\mathcal{H}$ with $d_{\mathrm{vc}}=10$, what sample size do you need (as
 
 \textcolor{blue}{Solution}\\
 
+From the VC-inequality, we have
+$$\mathbb{P}\left[\sup_{h\in\mathcal{H}}\left|E_{\text{in}}(h)-E_{\text{out}}(h)\right|>\epsilon\right]\leq 4m_{\mathcal{H}}(2N)e^{-\frac{1}{8}\epsilon^2N}$$
+i.e.
+$$E_{\text{generalization}}(h) = \left|E_{\text{out}}(h) - E_{\text{in}}(h)\right| \leq \sqrt{\dfrac{8}{N}\ln\left(\dfrac{4((2N)^{\text{d}_{\text{vc}}}+1)}{\delta}\right)}$$
+where $\text{d}_{\text{vc}}$ is the VC-dimension of $\mathcal{H}$, and $\delta$ is the confidence level.\\
+Since we want the confidence to be $95\%$, so $\delta=0.05$.\\
+So we want to find when $d_{\mathrm{vc}}=10, \delta=0.05$, what is the minimum sample size $N$ such that $E_{\text{generalization}}(h)\leq 0.05$.\\
+Which is hard to solve analytically, so we can use the following python code to find the minimum sample size $N$.
 
+\lstinputlisting[title=p2.py, language=python]{../p2.py}
+With the code, we can get that:
+\begin{align*}
+    N = 452957, E_{\text{generalization}}(h) &= 0.04999999306115058 < 0.05\\
+    N = 452956, E_{\text{generalization}}(h) &= 0.05000004435489733 > 0.05
+\end{align*}
 
-
-
-
-
+The minimum sample size is $N=452957$.\\
+So above all, the sample size $N$ should be at least $452957$ to have a $95\%$ confidence that the generalization error is at most $0.05$.\\
 
 \newpage
