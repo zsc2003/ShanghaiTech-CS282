@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  21 APR 2024 20:11
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  24 APR 2024 16:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -551,7 +551,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-[6]) (./section/t5.tex) [7] (./hw.aux)
+[6]) (./section/t5.tex
+Underfull \hbox (badness 10000) in paragraph at lines 32--34
+
+ []
+
+) [7] (./hw.aux)
 Package rerunfilecheck Info: File `hw.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 

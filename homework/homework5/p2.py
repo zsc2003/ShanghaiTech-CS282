@@ -15,5 +15,5 @@ while left <= right:
         left = mid + 1
 
 print('The minimum sample size is N = ', ans)
-print(f'N = {ans}, generalization error = {general_error(ans)}')
 print(f'N = {ans - 1}, generalization error = {general_error(ans - 1)}')
+print(f'N = {ans}, generalization error = {general_error(ans)}')
