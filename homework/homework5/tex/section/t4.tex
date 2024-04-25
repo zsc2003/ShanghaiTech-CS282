@@ -3,17 +3,55 @@
 Let $\mathcal{H}_1, \mathcal{H}_2, \ldots, \mathcal{H}_K$ be $K$ hypothesis sets with finite VC dimension $d_{\text {vc }}$. Let $\mathcal{H}=\mathcal{H}_1 \cup \mathcal{H}_2 \cup \ldots \cup \mathcal{H}_K$ be the union of these models. Show that $d_{\mathrm{vc}}(\mathcal{H})<K\left(d_{\mathrm{vc}}+1\right)$.
 
 \textcolor{blue}{Solution}\\
+To be more general, suppose that $d_{\text{vc}}(\mathcal{H}_i)=d_i$ for $i=1,2,\ldots,K$.\\
+And we can prove that
+$$d_{\text{vc}}(\mathcal{H})\leq K-1+\sum_{i=1}^{K}d_i$$
+1. If $K=1$, then
+$$d_{\text{vc}}(\mathcal{H})=d_{\text{vc}}(\mathcal{H}_1)=d_1\leq 0 + d_1$$
+2. If $K=2$, then we need to prove that
+$$d_{\text{vc}}(\mathcal{H})=d_{\text{vc}}(\mathcal{H}_1\cup\mathcal{H}_2)\leq 1+d_1+d_2$$
+We can prove this with contradiction.\\
+If we assume that $d_{\text{vc}}(\mathcal{H})=d_{\text{vc}}(\mathcal{H}_1\cup\mathcal{H}_2)\geq d_1+d_2+2$.\\
+Then we have
+$$m_{\mathcal{H}}(d_1+d_2+2)\geq 2^{d_1+d_2+2}$$
+But we also have:
+\begin{align*}
+    m_{\mathcal{H}}(d_1+d_2+2) &= m_{\mathcal{H}_1\cup\mathcal{H}_2}(d_1+d_2+2) \\
+    &\leq m_{\mathcal{H}_1}(d_1+d_2+2) + m_{\mathcal{H}_2}(d_1+d_2+2) \\
+    &\leq \sum_{i=0}^{d_1} \binom{d_1+d_2+2}{i} + \sum_{i=0}^{d_2} \binom{d_1+d_2+2}{i} \\
+    &= \sum_{i=0}^{d_1} \binom{d_1+d_2+2}{i} + \sum_{i=0}^{d_2} \binom{d_1+d_2+2}{d_1+d_2+2-i} \\
+    &= \left[\sum_{i=0}^{d_1+d_2+2} \binom{d_1+d_2+2}{i}\right] - \binom{d_1+d_2+2}{d_1+1} \\
+    &= 2^{d_1+d_2+2} - \binom{d_1+d_2+2}{d_1+1} \\
+    &< 2^{d_1+d_2+2}
+\end{align*}
+Which is a contradiction.\\
+Therefore, we have $d_{\text{vc}}(\mathcal{H}_1\cup\mathcal{H}_2)\leq 1+d_1+d_2$.
 
+3. Then we use induction to prove that $d_{\text{vc}}(\mathcal{H})\leq K-1+\sum\limits_{i=1}^{K}d_i$.\\
+Suppose that when $K=k$, we have $d_{\text{vc}}(\mathcal{H}_1\cup \mathcal{H}_2\cup \ldots\cup \mathcal{H}_k)\leq k-1+\sum\limits_{i=1}^{k}d_i$.\\
+When $K=k+1$, we have
+\begin{align*}
+    d_{\text{vc}}(\mathcal{H}) &= d_{\text{vc}}(\mathcal{H}_1\cup\mathcal{H}_2\cup\ldots\cup\mathcal{H}_{k+1}) \\
+    &= d_{\text{vc}}\left[(\mathcal{H}_1\cup\mathcal{H}_2\cup\ldots\cup\mathcal{H}_{k})\cup\mathcal{H}_{k+1}\right] \\
+    &\leq 1 + d_{\text{vc}}(\mathcal{H}_1\cup\mathcal{H}_2\cup\ldots\cup\mathcal{H}_k) + d_{\text{vc}}(\mathcal{H}_{k+1}) \\
+    &\leq 1 + \left(k-1+\sum\limits_{i=1}^{k}d_i\right) + d_{k+1}\\
+    &= k  +\sum\limits_{i=1}^{k+1}d_i
+\end{align*}
+So we have proved that when $K=k+1$,
+$$d_{\text{vc}}(\mathcal{H})\leq (k + 1) - 1 +\sum\limits_{i=1}^{k+1}d_i$$
 
+4. By induction, we can prove that $d_{\text{vc}}(\mathcal{H})\leq K-1+\sum\limits_{i=1}^{K}d_i$.\\
 
+Since we have $d_{\text{vc}}(\mathcal{H}_i)=d_i=d_{\text{vc}},\ \forall i=1,2,\ldots,K$, we can get that
+\begin{align*}
+    d_{\text{vc}}(\mathcal{H}) &= d_{\text{vc}}(\mathcal{H}_1 \cup \mathcal{H}_2 \cup \ldots \cup \mathcal{H}_K) \\
+    &\leq K-1+\sum\limits_{i=1}^{K}d_i \\
+    &= K-1+Kd_{\text{vc}} \\
+    &< K+Kd_{\text{vc}} \\
+    &= K(d_{\text{vc}}+1)
+\end{align*}
 
-
-
-
-
-
-
-
-
+So above all, we have proved that
+$$d_{\text{vc}}(\mathcal{H})<K(d_{\text{vc}}+1)$$
 
 \newpage

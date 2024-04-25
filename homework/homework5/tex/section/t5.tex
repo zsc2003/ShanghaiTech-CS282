@@ -15,24 +15,44 @@ where $x$ and $f$ are feature and label, respectively.
 (Key: Mathematically, you have to prove that for any label sets $y_1, \cdots, y_m, m \in \mathbb{N}$, there exists $\alpha \in \mathbb{R}$ and $x_i, i=1,2, \cdots, m$ such that $f(x ; \alpha)$ can generate this set of labels. Consider the points $\left.x_i=10^{-i} \ldots\right)$
 
 \textcolor{blue}{Solution}\\
-(1) 
-$$\sin(2\alpha)=2\sin\alpha\cos\alpha$$
-$$\sin(4\alpha)=2\sin(2\alpha)\cos(2\alpha)$$
+(1) For the case $x_1=1, x_2=2, x_3=3, x_4=4$ with label $y_1=+1$, $y_2=+1$, $y_3=-1$, $y_4=+1$,
+we can prove that $\forall\alpha\in\mathbb{R},\exists i\in\{1,2,3,4\},f(x_i)\neq y_i$.
+\begin{itemize}
+    \item 1. For $x_1=1$\\
+    Since $y_1=+1$, we have $f(x_1)=\text{sign}(\sin\alpha)=+1\Rightarrow \sin\alpha>0$\\
+    i.e. we have $\sin\alpha>0$.
 
+    \item 2. For $x_2=2$\\
+    Since $y_2=+1$, we have $f(x_2)=\text{sign}(\sin 2\alpha)=+1\Rightarrow \sin 2\alpha>0$\\
+    i.e. we have $\sin 2\alpha=2\sin\alpha\cos\alpha>0$.\\
+    From 1. we have known that $\sin\alpha>0$, so we must have $\cos\alpha>0$.\\
+    i.e. we have $\cos\alpha>0$ and $\sin 2\alpha>0$.
+    
+    \item For $x_3=3$\\ 
+    Since $y_3=-1$, we have $f(x_3)=\text{sign}(\sin 3\alpha)=-1\Rightarrow \sin 3\alpha<0$\\
+    i.e. we have $\sin 3\alpha=\sin\alpha\cos 2\alpha+\sin 2\alpha\cos\alpha<0$.\\
+    From 1. we have $\sin\alpha>0$, and from 2. we have $\cos\alpha>0$, $\sin 2\alpha>0$,\\
+    so we must have $\cos 2\alpha<0$.\\
+    i.e. we have $\cos 2\alpha<0$.
 
+    \item For $x_4=4$\\
+    Since $y_4=+1$, we have $f(x_4)=\text{sign}(\sin 4\alpha)=+1\Rightarrow \sin 4\alpha>0$\\
+    i.e. we have $\sin(4\alpha)=2\sin(2\alpha)\cos(2\alpha)>0$\\
+    But from 2. we have $\sin 2\alpha>0$, from 3. we have $\cos 2\alpha<0$,\\
+    so we must have $\sin(4\alpha)<0$, which is a contradiction.
+\end{itemize}
 
+So we have prove that for $y_1=+1$, $y_2=+1$, $y_3=-1$, $y_4=+1$, \\$\forall\alpha\in\mathbb{R}$, if $\forall i\in\{1,2,3\},f(x_i)= y_i$, then $f(x_4)\neq y_4$.\\
+So above all, $\mathcal{H}$ cannot shatter the points $x_1=1, x_2=2, x_3=3, x_4=4, \ \forall \alpha\in\mathbb{R}$.\\
 
+(2) We can construct that:\\
+Let $\alpha=1$, $x_i=\pi-\dfrac{\pi}{2}\cdot y_i+2\pi i, i=1,2,\cdots, m$\\
+\begin{itemize}
+    \item For $y_i=+1$, we have
+    $$f(x_i)=\text{sign}(\sin(\pi-\dfrac{\pi}{2}\cdot y_i+2\pi i))=\text{sign}(\sin(\dfrac{\pi}{2}+2\pi i))=+1$$
+    \item For $y_i=-1$, we have 
+    $$f(x_i)=\text{sign}(\sin(\pi-\dfrac{\pi}{2}\cdot y_i+2\pi i))=\text{sign}(\sin(\dfrac{3\pi}{2}+2\pi i))=-1$$
+\end{itemize}
 
-
-
-
-
-
-
-(2)
-$\alpha=1$, $x_i=\pi-\dfrac{\pi}{2}\cdot y_i+2\pi i$\\
-
-
-
-
-
+So above all, we have proved that for any label sets $y_1, \cdots, y_m, m \in \mathbb{N}$, \\there exists $\alpha \in \mathbb{R}$ and $x_i, i=1,2, \cdots, m$ such that $f(x ; \alpha)$ can generate this set of labels.\\
+i.e. the VC dimension of $\mathcal{H}$ is $\infty$.
