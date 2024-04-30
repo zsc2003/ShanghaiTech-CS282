@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  30 APR 2024 20:24
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.6)  30 APR 2024 20:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -512,7 +512,10 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 
 ] (./section/t1.tex
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
+File: ../fig/p1.png Graphic file (type bmp)
+<../fig/p1.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
@@ -535,10 +538,10 @@ Package rerunfilecheck Info: File `hw.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 13953 strings out of 476683
- 220724 string characters out of 5807576
+ 13964 strings out of 476683
+ 220870 string characters out of 5807576
  1848012 words of memory out of 5000000
- 33985 multiletter control sequences out of 15000+600000
+ 33992 multiletter control sequences out of 15000+600000
  530547 words of font info for 55 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,11n,76p,995b,337s stack positions out of 10000i,1000n,20000p,200000b,200000s
