@@ -1,0 +1,37 @@
+\textcolor{blue}{Problem 1}
+In this problem, you will investigate the relationship between the soft order constraint and the augmented error. The regularized weight $\mathbf{w}_{\text {reg }}$ is a solution to
+\begin{align*}
+\min &\ E_{\text {in }}(\mathbf{w}) \\
+\text {subject to} &\ \mathbf{w}^{\mathrm{T}} \Gamma^{\mathrm{T}} \Gamma \mathbf{w} \leq C
+\end{align*}
+(a) If $\mathbf{w}_{\text {lin }}^{\mathrm{T}} \Gamma^{\mathrm{T}} \Gamma \mathrm{w}_{\text {lin }} \leq C$, then what is $\mathbf{w}_{\text{reg}}$?\\
+(b) If $\mathbf{w}_{\text {lin }}^\tau \Gamma^{\top} \Gamma \mathbf{w}_{\text {lin }}>C$, the situation is illustrated below,
+
+The constraint is satisfied in the shaded region and the contours of constant $E_{\text {in }}$ are the ellipsoids (why ellipsoids?). What is $\mathbf{w}_{\text {reg }}^{\mathrm{T}} \Gamma^{\mathrm{T}} \Gamma \mathbf{w}_{\mathrm{reg}}$?\\
+(c) Show that with
+$$
+\lambda_C=-\frac{1}{2 C} \mathbf{w}_{\text {reg }}^{\mathrm{T}} \nabla E_{\text {in }}\left(\mathbf{w}_{\text {reg }}\right)
+$$
+$\mathbf{w}_{\text {reg }}$ minimizes $E_{\text {in }}(\mathbf{w})+\lambda_C \mathbf{w}^{\mathrm{T}} \Gamma^{\mathrm{T}} \Gamma \mathbf{w}$. [Hint: use the previous part to solve for $\mathbf{w}_{\text{reg}}$ as an equality constrained optimization problem using the method of Lagrange multipliers.]\\
+(d) Show that the following hold for $\lambda_C$ :\\
+(i) If $\mathrm{w}_{\text {lin }}^{\mathrm{T}} \Gamma^{\top} \Gamma \mathrm{w}_{\text {lin }} \leq C$ then $\lambda_C=0$ ( $\mathbf{w}_{\text {lin }}$ itself satisfies the constraint).\\
+(ii) If $\mathrm{w}_{\text {lin }}^{\mathrm{T}} \Gamma^{\mathrm{T}} \Gamma \mathrm{w}_{\text {lin }}>C$, then $\lambda_C>0$ (the penalty term is positive).\\
+(iii) If $\mathrm{w}_{\text {lin }}^{\mathrm{T}} \Gamma^{\mathrm{T}} \Gamma \mathrm{w}_{\text {lin }}>C$, then $\lambda_C$ is a strictly decreasing function of $C$. [Hint: show that $\frac{d \lambda_C}{d C}<0$ for $\left.C \in\left[0, \mathbf{w}_{\text {lin }}^T \Gamma^T \Gamma \mathbf{w}_{\text {lin }}\right]\right]$.
+
+\textcolor{blue}{Solution}\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
