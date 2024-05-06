@@ -44,14 +44,15 @@ class DataLoader:
         self.data['EstimatedSalary'] = pd.cut(self.data['EstimatedSalary'], bins=[0, 19500, 40000, 60000, 80000, 100000, 130000, 145000, 200000], labels=[0, 1, 2, 3, 4, 5, 6, 7])
         self.data = pd.get_dummies(self.data, columns=['EstimatedSalary'], dtype=int)
 
-        # get the column names
-        self.column_names = self.data.columns
-
         # add a bias term
         self.data['bias'] = 1
 
         # modify Purchased to +1 and -1(0 -> -1)
         self.data['Purchased'] = self.data['Purchased'].map({0 : -1, 1 : 1})
+        
+        # get the column names
+        self.column_names = self.data.columns.drop('Purchased')
+
 
     def split_data(self):
         training_rate = 0.7
