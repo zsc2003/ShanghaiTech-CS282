@@ -10,16 +10,65 @@ The model is called the lasso algorithm.\\
 (b) What is the augmented error and discuss the algorithm for solving it. You can solve this problem using iterative soft-thresholding algorithm or a gradient projection method and present your pseudocode.
 
 \textcolor{blue}{Solution}\\
+(a) We can set $E_{\text {in }}(\mathbf{w})$ to be the $L_2$ loss, i.e.
+$$E_{\text {in }}(\mathbf{w})=\frac{1}{N} \sum_{n=1}^{N}\left(\mathbf{w}^{\mathrm{T}} \mathbf{x}_{n}-y_{n}\right)^{2}=\dfrac{1}{N}\|\mathbf{Xw}-\mathbf{y}\|_2^2$$
+where $\mathbf{X}$ is the matrix of feature vectors, $\mathbf{y}$ is the vector of labels, and $N$ is the number of data points, $\mathbf{x}_{n}$ is the feature vector of the $n$-th data point and $y_{n}$ is the label.
 
+For the objective function, we can rewrite it as:
+\begin{align*}
+\min_{\mathbf{w},\mathbf{t}} E_{\text{in}}(\mathbf{w}) &= \dfrac{1}{N}\|\mathbf{Xw}-\mathbf{y}\|_2^2 \\
+&= \dfrac{1}{N}(\mathbf{Xw}-\mathbf{y})^T(\mathbf{Xw}-\mathbf{y}) \\
+&= \dfrac{1}{N}(\mathbf{w}^T\mathbf{X}^T\mathbf{Xw}-2\mathbf{w}^T\mathbf{X}^T\mathbf{y}+\mathbf{y}^T\mathbf{y})
+\end{align*}
+Which is a quadratic function of $\mathbf{w},\mathbf{t}$, and the definition of $\mathbf{t}$ is as followed.\\
+For the constrains, we can slack the variables by letting $|w_i| \leq t_i$ for $i=1,2,\cdots,d$, and $t_i \geq 0$. Then we can rewrite the constrain as:
+\begin{align*}
+\sum_{i=0}^d t_i &\leq C \\
+t_i &\geq 0, \quad\quad\ \ i=1,2,\cdots,d \\
+-t_i \leq &w_i \leq t_i, \quad\ i=1,2,\cdots,d 
+\end{align*}
+Which are the linear constrains for $\mathbf{w}, \mathbf{t}$.\\
+Since the optimization problem is a quadratic programming problem with linear constrains, so it is a quadratic programming.\\
 
+(b) The augmented error is defined as:
+$$E_{\text{aug}}(\mathbf{w}) = E_{\text{in}}(\mathbf{w}) + \lambda\sum_{i=0}^d|w_i| = E_{\text{in}}(\mathbf{w}) + \lambda\|\mathbf{w}\|_1$$
+where $\lambda$ and is the hyperparameter.\\
+Since $L_1$ norm is not differentiable, so we cannot simply use the gradient methods, but we can use the iterative soft-thresholding algorithm to solve it.\\
 
+Define the regularization term to be $h(\mathbf{x})=\|\mathbf{x}\|_1$.\\
+The $L_1$ regularization's proximal term is $\text{prox}_{\lambda h}(\mathbf{x})=\arg\min\limits_{\mathbf{z}}\left\{\dfrac{1}{2}\|\mathbf{z}-\mathbf{x}\|_2^2+\lambda h(\mathbf{z})\right\}$.\\
+Since the proximal term is seperatable, so we can decompose into item by item optimization with soft-thresholding.\\
+i.e.
+$$(\text{prox}_{\lambda h}(\mathbf{x}))_i = \psi_{\text{st}}(x_i,\lambda)$$
+where $\psi_{\text{st}}$ is the soft-thresholding function.\\
+Then we analyze the soft-thresholding function:\\
+$$\psi_{\text{st}}(x,\lambda) = \arg\min\limits_{z_i}\left\{\dfrac{1}{2}(z_i-x_i)^2+\lambda|z_i|\right\}$$
+\begin{itemize}
+    \item If $z_i\geq 0$, then $\arg\min\limits_{z_i}\left\{\dfrac{1}{2}z_i^2+(\lambda-x_i)z_i+\dfrac{1}{2}x_i^2\right\}$, which is a simple quadratic function. \\
+    1. If $x_i \geq \lambda$, then $z_i = x_i-\lambda\geq 0$ \\
+    2. If $x_i < \lambda$, then $z_i = 0$ \\
+    \item If $z_i < 0$, then $\arg\min\limits_{z_i}\left\{\dfrac{1}{2}z_i^2-(\lambda+x_i)z_i+\dfrac{1}{2}x_i^2\right\}$, which is also a simple quadratic function. \\
+    1. If $x_i \leq -\lambda$, then $z_i = x_i+\lambda\leq 0$ \\
+    2. If $x_i > -\lambda$, then $z_i = 0$
+\end{itemize}
+So combine all these cases together, we can get the soft-thresholding function:
+$$\psi_{\text{st}}(x_i,\lambda) = \begin{cases}
+x_i-\lambda, & x_i > \lambda \\
+0, & |x_i| \leq \lambda \\
+x_i+\lambda, & x_i < -\lambda
+\end{cases}$$
+So with the soft-thresholding function, we can solve the Lasso problem by applying the proximal gradient method.
 
+The pseudocode is shown in Algorithm \ref{alg:proximal}.
 
-
-
-
-
-
-
+\begin{algorithm}
+\caption{Proximal Gradient Method for Lasso Problem}
+\begin{algorithmic}[1]
+    \For{$t=0,1,2,\cdots$}
+        \State $\mathbf{w}^{(t+1)} \gets \text{prox}_{\eta_t \lambda h}(\mathbf{w}^{(t)}-\eta_t\nabla E_{\text{in}}(\mathbf{w}^{(t)}))$
+    \EndFor
+\end{algorithmic}
+\label{alg:proximal}
+\end{algorithm}
 
 \newpage
