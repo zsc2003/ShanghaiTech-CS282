@@ -7,23 +7,34 @@
 where $\mathcal{L}$ is the zero-one loss. Prove that
 \begin{equation}
     \text{leave-one-out CV error}\leq \frac{\text{number of support vectors}}{\text{n}}
-\end{equation} (20pt) \\
-\textcolor{blue}{Solution}
+\end{equation} (20pt)
 
 
+\textcolor{blue}{Solution}\\
+Then `Support Vectors' mentioned below are the points that are on the margin of SVM trained by all the training data.\\
+Since we are applying Leave-one-out cross-validation, when leaving the $i$-th point $\mathbf{x}_i$ to the validation set, we have:
+\begin{itemize}
+    \item[1.] If $\mathbf{x}_i$ is not the support vector.\\
+    Then the result of the new SVM would not change compared with the original one, so the error is $$\mathcal{L}(y_i,f(\mathbf{x}_i;\mathbf{w}^{-i},b^{-i}))=0$$
 
+    \item[2.] If $\mathbf{x}_i$ is the support vector.
+    \begin{itemize}
+        \item If $\mathbf{x}_i$ is the unique support vector.\\
+        Then the result of the SVM would change, and the margin of the new SVM would increase, which means that $\mathbf{x}_i$ would be misclassified, so the error is $$\mathcal{L}(y_i,f(\mathbf{x}_i;\mathbf{w}^{-i},b^{-i}))=1$$
+        \item If $\mathbf{x}_i$ is not the unique support vector.\\
+        Then the result of the SVM would not change, so the error is $$\mathcal{L}(y_i,f(\mathbf{x}_i;\mathbf{w}^{-i},b^{-i}))=0$$
+    \end{itemize}
+    So combine all the cases, we could get that when $\mathbf{x}_i$ is the support vector, the error $\mathcal{L}(y_i,f(\mathbf{x}_i;\mathbf{w}^{-i},b^{-i}))\leq 1$.
+\end{itemize}
+So we could get that the leave-one-out CV error is
+\begin{align*}
+    \text{leave-one-out CV error} &= \frac{1}{n}\sum_{i=1}^n\mathcal{L}(y_i,f(\mathbf{x}_i;\mathbf{w}^{-i},b^{-i})) \\
+    &\leq \frac{1}{n}\sum_{\mathbf{x}_i \text{is support vector}} \mathcal{L}(y_i,f(\mathbf{x}_i;\mathbf{w}^{-i},b^{-i})) \\
+    &\leq \frac{1}{n}\sum_{\mathbf{x}_i \text{is support vector}} 1 \\
+    &= \frac{\text{number of support vectors}}{n}
+\end{align*}
 
-
-
-
-
-
-
-
-
-
-
-
-
+So above all, we have proved that
+$$\text{leave-one-out CV error}\leq \frac{\text{number of support vectors}}{\text{n}}$$
 
 \newpage

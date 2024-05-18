@@ -3,24 +3,69 @@
     \begin{equation}
        \begin{aligned}
         \min_{\mathbf{w},b} & \|\mathbf{w}\|_1 \\
-        \text{s.t. }& y_i(\mathbf{w}^T\mathbf{x}_i+b)\leq 1,i=1,...,n.
-    \end{aligned}     
+        \text{s.t. }& y_i(\mathbf{w}^T\mathbf{x}_i+b)\geq 1,i=1,...,N.
+    \end{aligned}
     \end{equation}
 
-\par Please deprive the equivalent linear programming formulation of (3) (10pt), give its dual formulation (10pt). Also, please explain how to determine the support vector SV according to the optimal multiplier. (10pt) \\
-\textcolor{blue}{Solution}
+\par Please deprive the equivalent linear programming formulation of (3) (10pt), give its dual formulation (10pt). Also, please explain how to determine the support vector SV according to the optimal multiplier. (10pt)
 
 
+\textcolor{blue}{Solution} \\
+Suppose there are totally $N$ sample points, and the dimension of the feature space is $n$. i.e. $\mathbf{w}, \mathbf{x}_i \in \mathbb{R}^n$.\\
 
+(1) To convert the $l_1$-norm SVM into a linear programming problem, for each $w_i$, we can split it into $w_i^+$ and $w_i^-$ to avoid the absolute value, which is nonlinear. And $w_i^+$ and $w_i^-$ are both non-negative.
+i.e.
+\begin{align*}
+    w_i^+ &= \max(w_i, 0) \\
+    w_i^- &= \max(-w_i, 0) \\
+    w_i &= w_i^+ - w_i^- \\
+    |w_i| &= w_i^+ + w_i^-
+\end{align*}
+Define $\mathbf{w^+}= [w_1^+, w_2^+, ..., w_n^+]^T$, $\mathbf{w^-}= [w_1^-, w_2^-, ..., w_n^-]^T$, then we have $\mathbf{w}= \mathbf{w+} - \mathbf{w-}$.\\
+So the $l_1$-norm SVM can be reformulated as:
+\begin{align*}
+    \min_{\mathbf{w^+}, \mathbf{w^-}\in\mathbb{R}^n, b\in\mathbb{R}} &\ \sum_{i=1}^{n} (w_i^+ + w_i^-) \\
+    \text{s.t. } &\ y_i\left[(\mathbf{w}^+-\mathbf{w}^-)^T\mathbf{x}_i+b\right]\geq 1,i=1,...,N \\
+    &\ \mathbf{w}^+\succeq 0 \\
+    &\ \mathbf{w}^-\succeq 0
+\end{align*}
 
+(2) Define $\mathbf{1}_n = [1, 1,\cdots, 1]^T$($1$ repeat $n$ times).\\
+Then the Lagrangian of the above linear programming problem is:
+\begin{align*}
+    L(\mathbf{w^+}, \mathbf{w^-}, b, \boldsymbol{\lambda}, \boldsymbol{\mu}, \boldsymbol{\nu}) &= \sum_{i=1}^{n} (w_i^+ + w_i^-) - \sum_{i=1}^{N}\lambda_i\left[y_i\left[(\mathbf{w}^+-\mathbf{w}^-)^T\mathbf{x}_i+b\right]-1\right] - \boldsymbol{\mu}^T\mathbf{w}^+ - \boldsymbol{\nu}^T\mathbf{w}^- \\
+    &= \mathbf{1}_n^T\mathbf{w}^+ + \mathbf{1}_n^T\mathbf{w}^- - \sum_{i=1}^{N}\lambda_i\left[y_i\mathbf{x}_i^T\mathbf{w}^+ - y_i\mathbf{x}_i^T\mathbf{w}^- +y_ib-1\right] - \boldsymbol{\mu}^T\mathbf{w}^+ - \boldsymbol{\nu}^T\mathbf{w}^- \\
+    &= (\mathbf{1}_n - \sum_{i=1}^{N}\lambda_iy_i\mathbf{x}_i- \boldsymbol{\mu})^T\mathbf{w}^+ + (\mathbf{1}_n + \sum_{i=1}^{N}\lambda_iy_i\mathbf{x}_i- \boldsymbol{\nu})^T\mathbf{w}^- - \sum_{i=1}^{N}\lambda_iy_ib + \sum_{i=1}^{N}\lambda_i
+\end{align*}
+Where $\boldsymbol{\lambda}, \boldsymbol{\mu}, \boldsymbol{\nu}\succeq 0$.\\
+The dual objective function is:
+$$g(\boldsymbol{\lambda}, \boldsymbol{\mu}, \boldsymbol{\nu}) = \min_{\mathbf{w^+}, \mathbf{w^-}, b} L(\mathbf{w^+}, \mathbf{w^-}, b, \boldsymbol{\lambda}, \boldsymbol{\mu}, \boldsymbol{\nu})$$
+To get the $g(\boldsymbol{\lambda}, \boldsymbol{\mu}, \boldsymbol{\nu})$, we need to take the gradient of the primal variables and set them to zero. i.e.
+\begin{align*}
+\left\{\begin{array}{l}
+    \dfrac{\partial L}{\partial \mathbf{w}^+} = \mathbf{1}_n - \sum\limits_{i=1}^{N}\lambda_iy_i\mathbf{x}_i- \boldsymbol{\mu} = 0 \\\\
+    \dfrac{\partial L}{\partial \mathbf{w}^-} = \mathbf{1}_n + \sum\limits_{i=1}^{N}\lambda_iy_i\mathbf{x}_i- \boldsymbol{\nu} = 0 \\\\
+    \dfrac{\partial L}{\partial b} = -\sum\limits_{i=1}^{N}\lambda_iy_i = 0
+    \end{array}\right.
+\end{align*}
 
+So put these equations into the Lagrangian, we can get the dual objective function:
+$$g(\boldsymbol{\lambda}, \boldsymbol{\mu}, \boldsymbol{\nu}) = \sum_{i=1}^{N}\lambda_i$$
 
+So above all, the dual formulation of the $l_1$-norm SVM is:
+\begin{align*}
+    \max_{\boldsymbol{\lambda}, \boldsymbol{\mu}, \boldsymbol{\nu}} &\ \sum_{i=1}^{N}\lambda_i \\
+    \text{s.t. } &\ \boldsymbol{\lambda}\succeq 0 \\
+    &\ \boldsymbol{\mu}\succeq 0 \\
+    &\ \boldsymbol{\nu}\succeq 0 \\
+    &\ \sum_{i=1}^{N}\lambda_iy_i = 0
+\end{align*}
 
+(3) To determine the support vector SV according to the optimal multiplier, we need to check the KKT conditions.\\
+From the complementary condition of KKT, we have:
+$$\lambda_i\left[y_i\left[(\mathbf{w}^+-\mathbf{w}^-)^T\mathbf{x}_i+b\right]-1\right] = 0$$
+For the support vectors $\mathbf{x}_i$, we know that they have
+$$y_i\left[(\mathbf{w}^+-\mathbf{w}^-)^T\mathbf{x}_i+b\right] = 1$$
+And since $\lambda_i \geq 0$, so we have if $\lambda_i > 0$, then $\mathbf{x}_i$ is a support vector.\\
 
-
-
-
-
-
-
-
+So above all, we check the values of the optimal multipliers $\boldsymbol{\lambda}$, and if $\lambda_i > 0$, then $\mathbf{x}_i$ is a support vector.\\
